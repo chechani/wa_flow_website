@@ -47,7 +47,7 @@ export default function LeandingPageContent() {
                 </div>
                 {/* </div> */}
                 {/*===============spacing==============*/}
-                <div className="pd_bottom_50" />
+                <div className="pd_bottom_10" />
                 {/*===============spacing==============*/}
             </section>
 

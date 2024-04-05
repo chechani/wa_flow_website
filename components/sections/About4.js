@@ -20,13 +20,13 @@ export default function About4() {
     return (
         <>
             <section className="about-section">
-                {/*===============spacing==============*/}
-                <div className="pd_top_20" />
+                                {/*===============spacing==============*/}
+                                <div className="pd_top_70" />
                 {/*===============spacing==============*/}
                 <div className="container">
                     <div className="mt-4 mb-5" style={{ textAlign: "center" }}>
                         <h1 style={{ fontWeight: "bold", fontSize: "50px" }}><strong style={{ color: "#06af43" }}>WhatsApp</strong> Marketing</h1>
-                        <div className="row container mt-4">
+                        <div className="row container mt-3">
                             <div className="col-6">
                                 <p style={{ fontWeight: "bold" }}><img src="/assets/images/green-tik.png" className="img-fluid svg_image" alt="icon png" style={{ height: "35px" }} /> 98 % High open rate</p>
                             </div>

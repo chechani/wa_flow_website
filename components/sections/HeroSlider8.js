@@ -15,7 +15,6 @@ export default function HeroSlider8() {
                     font-size: 24px;
                     border-radius: 5px;
                     text-align: center;
-                    text-transform: uppercase;
                     box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
                 }
             `}</style>
@@ -30,9 +29,8 @@ export default function HeroSlider8() {
                                 <div className="container">
                                     <h2 className="ai-powered">AI Powered</h2>
                                 </div>
-                                <h2 className="" style={{color:"#fb6529",marginTop:"20px"}}><strong>Drive 300% Growth in Customer Engagement</strong></h2>
-                                <br />
-                               <h1 style={{color:"#5b5b5b"}}><strong style={{color:"#06af43"}}>WhatsApp</strong> Business Suite</h1>
+                                <h2 className="mt-3" style={{color:"#fb6529",marginTop:"20px"}}><strong>Drive 300% Growth in Customer Engagement</strong></h2>
+                               <h1 className="mt-3" style={{color:"#5b5b5b"}}><strong style={{color:"#06af43"}}>WhatsApp</strong> Business Suite</h1>
                                <h3 style={{color:"#5b5b5b",fontWeight:"bold"}}>Efficient Conversations, Intelligent ChatBots, Light Weight CRM,</h3>
                                <h3 style={{color:"#5b5b5b",fontWeight:"bold"}}> Workflow Automations and Seamless Integrations All in One Platform</h3>
                                 {/*===============spacing==============*/}

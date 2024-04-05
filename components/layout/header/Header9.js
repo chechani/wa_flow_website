@@ -32,11 +32,13 @@ export default function Header9({ handleMobileMenu }) {
                                             </div>
                                         </div>
                                         <div style={{ float: "right" }}>
-                                            <Link href="/free_form" style={{ textDecoration: "none", fontSize: 13, background: "#3CB371" }} onMouseOver={(e) => (e.target.style.background = "#2E8B57")}
+                                            {/* <Link href="/free_form" style={{ textDecoration: "none", fontSize: 13, background: "#3CB371" }} onMouseOver={(e) => (e.target.style.background = "#2E8B57")}
                                                 onMouseOut={(e) => (e.target.style.background = "#3CB371")}
-                                                className="theme-btn five">Get Started for FREE</Link>
-                                            <a href="https://cal.com/aiwabot/whatsapp-ai-bots" className="theme-btn five" style={{ fontSize: 13, textDecoration: "none", background: "#FFA500", color: "white", marginLeft: 3 }} onMouseOver={(e) => (e.target.style.background = "#DAA520")}
-                                                onMouseOut={(e) => (e.target.style.background = "#FFA500")}> Schedule a Demo
+                                                className="theme-btn five">Get Started for FREE</Link> */}
+                                            <a href="#" className="theme-btn five" 
+                                            style={{ fontSize: 13, textDecoration: "none", background: "#3CB371", textTransform:"initial", color: "white"}}
+                                                onMouseOver={(e) => (e.target.style.background = "#2E8B57")}
+                                                onMouseOut={(e) => (e.target.style.background = "#3CB371")}> Book a demo
                                             </a>
                                         </div>
                                     </div>
