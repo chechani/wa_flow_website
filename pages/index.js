@@ -1,30 +1,25 @@
 import Layout from "@/components/layout/Layout"
 import Head from 'next/head'
 import About4 from "@/components/sections/About4"
-import BotFaq from "./BotFaqs"
-import ElementNewsletter from "./elements/newsteller"
-import Content6 from "@/components/sections/Content6"
-import Service3 from "@/components/sections/Service3"
-import HeroSlider8 from "@/components/sections/HeroSlider8"
-import LeandingPageContent from "./LeandingPageContent"
 import About3 from "@/components/sections/About3"
+import HeroSlider10 from "@/components/sections/HeroSlider10"
+import About2 from "@/components/sections/About2"
+import About5 from "@/components/sections/About5"
 
 export default function Home1() {
 
     return (
         <>
             <Head>
-                <title>AIWABot WhatsApp Chatbot Marketing Powered by AI</title>
+                <title>WhatsApp flow</title>
             </Head>
             <Layout headerStyle={9} footerStyle={1}>
-                <HeroSlider8/>
-                <LeandingPageContent/>
+                <HeroSlider10/>
                 <About4 />
                 <About3/>
-                {/* <Content6 />
-                <Service3 />                
-                <BotFaq />
-                <ElementNewsletter /> */}
+                <About2/>
+                <About5/>
+                
             </Layout>
         </>
     )
