@@ -1,5 +1,4 @@
 import Layout from "@/components/layout/Layout"
-import About6 from "@/components/sections/About6"
 import Blog7 from "@/components/sections/Blog7"
 import Client3 from "@/components/sections/Client3"
 import Contact3 from "@/components/sections/Contact3"
@@ -17,7 +16,6 @@ export default function Home7() {
             <Layout headerStyle={7} footerStyle={7}>
                 <HeroSlider7 />
                 <Service8 />
-                <About6 />
                 <Project6 />
                 <Contact3 />
                 <Contact4 />
