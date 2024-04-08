@@ -39,15 +39,14 @@ export default function About2() {
                             {/*===============spacing==============*/}
                         </div>
                         <div className="col-xl-5 col-lg-6">
-                            <div className="icon_box_all style_one">
-                                <div className="icon_content icon_centers ">
+                            <div className="icon_box_all style_one" style={{height: "150px" }}>
+                                <div className="icon_content icon_centers"  style={{ float: "left" }}>
                                     <div className="icon">
                                         <img src="/assets/images/contact.png" alt="about" />
                                     </div>
                                     <div className="txt_content">
                                         <h6 style={{ fontWeight: "bold", fontSize: "20px" }}>For Consultation</h6>
-                                        <p>To take a trivial example, which of us ever undertakes get laborious physical
-                                            exercise.</p>
+                                        <p style={{color:"#0046a0"}}>bcc@smartysoft.in</p>
                                     </div>
                                 </div>
                             </div>
@@ -60,8 +59,8 @@ export default function About2() {
 
                     <div className="row">
                         <div className="col-xl-7 col-lg-6 mb-5 mb-lg-0 mb-xl-0">
-                            <div className="icon_box_all style_one">
-                                <div className="icon_content icon_centers">
+                            <div className="icon_box_all style_one" style={{height: "140px" }}>
+                                <div className="icon_content icon_centers" style={{ float: "left" }}>
                                     <div className="icon">
                                         <img src="/assets/images/whatsapp-icon.png" alt="about" />
                                     </div>
@@ -69,7 +68,7 @@ export default function About2() {
                                         <h6 style={{ fontWeight: "bold", fontSize: "20px" }}>
                                             For WhatsApp
                                         </h6>
-                                        <p>8-R-12 & 13, Second Floor, Kiran Tower, RC Vyas Colony, Bhilwara, Rajasthan</p>
+                                        <p style={{color:"#0046a0"}}>+91 8875627151</p>
                                     </div>
                                 </div>
                             </div>
@@ -85,7 +84,7 @@ export default function About2() {
                                     </div>
                                     <div className="txt_content">
                                         <h6 style={{ fontWeight: "bold", fontSize: "20px" }}>Work Hours</h6>
-                                        <p>Everyday 09 am - 07 pm</p>
+                                        <p style={{color:"#0046a0"}}>Everyday 09 am - 07 pm</p>
                                     </div>
                                 </div>
                             </div>
