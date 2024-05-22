@@ -5,7 +5,7 @@ export default function About4() {
             <section className="about-section">
                 <div className="container">
                     <div className="mb-5" style={{ textAlign: "center" }}>
-                        <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>Why WhatsApp Flows? <img src="/assets/images/second1.png" className="img-fluid svg_image" alt="icon png" style={{ height: "200px" }} /></h1>
+                        <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>Why WhatsApp Flows? <img src="/assets/images/second.png" className="img-fluid svg_image" alt="icon png" style={{ height: "200px" }} /></h1>
                     </div>
                     <div className="row">
                         <div className="col-xl-6 col-lg-12 col-md-12">
