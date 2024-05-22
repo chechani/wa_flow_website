@@ -1,5 +1,3 @@
-import Link from "next/link";
-import PageHead from "@/components/layout/PageHead";
 import demoContent from "../../pages/elements/demoContent.json"
 import { useState,useEffect } from "react";
 import { Modal, Button } from 'react-bootstrap';
@@ -49,7 +47,6 @@ export default function Demo() {
 
   return (
     <>
-      <PageHead />
       {demoContent.Heading.map((heading) => (
         <div
           style={{

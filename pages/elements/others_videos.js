@@ -29,7 +29,7 @@ export default function Others(props) {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>; // Loading state
+        return <div>Loading...</div>;
     }
 
     return (
