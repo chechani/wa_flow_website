@@ -5,17 +5,32 @@ import axios from "axios";
 
 export default function Healthcare(props) {
     const [healthcareData, setHealthcareData] = useState([]);
-    const [loading, setLoading] = useState(true); // Set loading to true initially
-    const healthcare_category = props.category;
+    const [loading, setLoading] = useState(true); 
+    // const healthcare_category = props.category;
 
 
     const fetchVideos = async () => {
         try {
-            const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${healthcare_category}`);
-            const videos = response.data.data.map(video => ({
-                ...video,
-                embedUrl: `https://www.youtube.com/embed/${new URL(video.url).searchParams.get("v")}`
-            }));
+            const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${"Healthcare"}`);
+            const videos = response.data.data.map(video => {
+                let videoId = null;
+    
+                try {
+                    const videoUrl = new URL(video.url);
+                    if (videoUrl.hostname === 'www.youtube.com' && videoUrl.searchParams.has('v')) {
+                        videoId = videoUrl.searchParams.get('v');
+                    } else if (videoUrl.hostname === 'youtu.be') {
+                        videoId = videoUrl.pathname.slice(1);
+                    }
+                } catch (error) {
+                    console.error('Invalid URL:', video.url);
+                }
+    
+                return {
+                    ...video,
+                    embedUrl: videoId ? `https://www.youtube.com/embed/${videoId}` : null
+                };
+            });
             setHealthcareData(videos);
         } catch (error) {
             console.log(error);
@@ -23,7 +38,7 @@ export default function Healthcare(props) {
             setLoading(false);
         }
     };
-
+    
 
     useEffect(() => {
         fetchVideos();
@@ -37,7 +52,7 @@ export default function Healthcare(props) {
         <>
             <div className="row">
                 {healthcareData.map((item, index) => (
-                    <div key={index} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div key={index} className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
                                 <img
@@ -102,8 +117,8 @@ export default function Healthcare(props) {
                                                 Wa Bot
                                             </span>
                                         </button>
-                                        <button
-                                            onClick={() => props.openModal(item.embedUrl)}
+                                        {/* <button
+                                            onClick={() => openModal(item.embedUrl)}
                                             className="theme-btn one"
                                             target="_blank"
                                             rel="nofollow"
@@ -127,7 +142,7 @@ export default function Healthcare(props) {
                                             <span style={{ marginLeft: "10px", color: "black" }}>
                                                 Web App
                                             </span>
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

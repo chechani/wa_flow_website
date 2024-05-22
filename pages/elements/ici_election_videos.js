@@ -6,27 +6,41 @@ import axios from "axios";
 export default function ICIElection(props) {
     const [IciData, setIciData] = useState([]);
     const [loading, setLoading] = useState(true); // Set loading to true initially
-    const icai_category = props.category;
+    // const icai_category = props.category;
 
     useEffect(() => {
+        const fetchVideos = async () => {
+            try {
+                const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${"ICAI"}`);
+                const videos = response.data.data.map(video => {
+                    let videoId = null;
+        
+                    try {
+                        const videoUrl = new URL(video.url);
+                        if (videoUrl.hostname === 'www.youtube.com' && videoUrl.searchParams.has('v')) {
+                            videoId = videoUrl.searchParams.get('v');
+                        } else if (videoUrl.hostname === 'youtu.be') {
+                            videoId = videoUrl.pathname.slice(1);
+                        }
+                    } catch (error) {
+                        console.error('Invalid URL:', video.url);
+                    }
+        
+                    return {
+                        ...video,
+                        embedUrl: videoId ? `https://www.youtube.com/embed/${videoId}` : null
+                    };
+                });
+                setIciData(videos);
+            } catch (error) {
+                console.log(error);
+            } finally {
+                setLoading(false);
+            }
+        };
+
         fetchVideos();
     }, []);
-
-    const fetchVideos = async () => {
-        try {
-            const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${icai_category}`);
-            setIciData(response.data.data);
-            const videos = response.data.data.map(video => ({
-                ...video,
-                embedUrl: `https://www.youtube.com/embed/${new URL(video.url).searchParams.get("v")}`
-            }));
-            setIciData(videos);
-        } catch (error) {
-            console.log(error);
-        } finally {
-            setLoading(false);
-        }
-    };
 
     if (loading) {
         return <div>Loading...</div>; // Loading state
@@ -36,7 +50,7 @@ export default function ICIElection(props) {
         <>
             <div className="row">
                 {IciData.map((item, index) => (
-                    <div key={index} className="col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                    <div key={index} className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
                                 <img
@@ -101,7 +115,7 @@ export default function ICIElection(props) {
                                                 Wa Bot
                                             </span>
                                         </button>
-                                        <button
+                                        {/* <button
                                             onClick={() => props.openModal(item.embedUrl)}
                                             className="theme-btn one"
                                             target="_blank"
@@ -126,7 +140,7 @@ export default function ICIElection(props) {
                                             <span style={{ marginLeft: "10px", color: "black" }}>
                                                 Web App
                                             </span>
-                                        </button>
+                                        </button> */}
                                     </div>
                                 </div>
                             </div>

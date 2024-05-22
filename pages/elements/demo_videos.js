@@ -1,6 +1,5 @@
-import demoContent from "../../pages/elements/demoContent.json"
-import { useState,useEffect } from "react";
-import { Modal, Button } from 'react-bootstrap';
+import { useState, useEffect } from "react";
+import { Modal } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Healthcare from "./healthcare_videos";
 import TaskManagement from "./task_management_videos";
@@ -17,6 +16,7 @@ export default function Demo() {
   const category2 = categoryData[3];
   const category3 = categoryData[1];
   const category4 = categoryData[5];
+
   const handleOnClick = (index) => {
     setActiveIndex(index);
   };
@@ -37,7 +37,7 @@ export default function Demo() {
         const response = await axios.get('https://foss-erp.in/api/method/smarty_web.api.get_category');
         setCategoryData(response.data.message);
       } catch (error) {
-        console.log(error);
+        console.error("Error fetching videos:", error);
       } 
     };
 
@@ -47,19 +47,15 @@ export default function Demo() {
 
   return (
     <>
-      {demoContent.Heading.map((heading) => (
         <div
-          style={{
-            textAlign: "center",
-            marginTop: "autox",
-            marginBottom: "50px",
-          }}
-        >
-          <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>{heading.head}</h1>
-        </div>
-      ))}
-
-      {/* First Container */}
+        style={{
+          textAlign: "center",
+          marginTop: "autox",
+          marginBottom: "50px",
+        }}
+      >
+        <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>Wa Flow Demo Videos</h1>
+      </div>
 
       <section className="price-plan-tab-section">
         <div className="container">
@@ -67,8 +63,7 @@ export default function Demo() {
             <div className="col-lg-12">
               <div className="price_plan_with_tab price_tb_style_one">
                 <div className="tab_pricing_list">
-                  {demoContent.DemoFor.map((demofor) => (
-                    <ul className="nav nav-tabs" id="myTab" role="tablist">
+                <ul className="nav nav-tabs" id="myTab" role="tablist">
                       <li className="nav-item" role="presentation">
                         <button
                           className={
@@ -77,7 +72,7 @@ export default function Demo() {
                           onClick={() => handleOnClick(1)}
                           style={{ fontSize: "18px" }}
                         >
-                          {demofor.Healthcare}
+                          Healthcare
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -88,7 +83,7 @@ export default function Demo() {
                           onClick={() => handleOnClick(2)}
                           style={{ fontSize: "18px" }}
                         >
-                          {demofor.Task_Management}
+                         Task Management
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -99,7 +94,7 @@ export default function Demo() {
                           onClick={() => handleOnClick(3)}
                           style={{ fontSize: "18px" }}
                         >
-                          {demofor.ICI_Election}
+                          ICI Election
                         </button>
                       </li>
                       <li className="nav-item" role="presentation">
@@ -110,11 +105,10 @@ export default function Demo() {
                           onClick={() => handleOnClick(4)}
                           style={{ fontSize: "18px" }}
                         >
-                          {demofor.Others}
+                         Others
                         </button>
                       </li>
                     </ul>
-                  ))}
                 </div>
                 <div
                   className="tab-content price_tab_content"
@@ -147,7 +141,6 @@ export default function Demo() {
                       className="tab-content price_tab_content"
                       id="myTabContent"
                     >
-
                       <TaskManagement openModal={openModal} category={category2}/>
                     </div>
                   </div>
@@ -163,7 +156,6 @@ export default function Demo() {
                       className="tab-content price_tab_content"
                       id="myTabContent"
                     >
-
                       <ICIElection openModal={openModal} category={category1}/>
                     </div>
                   </div>
@@ -179,7 +171,6 @@ export default function Demo() {
                       className="tab-content price_tab_content"
                       id="myTabContent"
                     >
-
                       <Others openModal={openModal} category={category4}/>
                     </div>
                   </div>
@@ -187,11 +178,8 @@ export default function Demo() {
               </div>
             </div>
           </div>
-
         </div>
-        {/*===============spacing==============*/}
         <div className="pd_bottom_80" />
-        {/*===============spacing==============*/}
       </section>
       <Modal show={showModal} onHide={closeModal} style={{ marginTop: "70px" }}>
         <Modal.Header closeButton>
