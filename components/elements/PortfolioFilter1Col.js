@@ -18,7 +18,6 @@ export default function PortfolioFilter1Col() {
 
 
     const openModal = (url) => {
-        console.log("Modal opened with URL:", url);
         setVideoUrl(url);
         setShowModal(true);
       };
