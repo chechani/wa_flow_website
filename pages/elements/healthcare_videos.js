@@ -5,16 +5,14 @@ import axios from "axios";
 
 export default function Healthcare(props) {
     const [healthcareData, setHealthcareData] = useState([]);
-    const [loading, setLoading] = useState(true); 
-    // const healthcare_category = props.category;
-
+    const [loading, setLoading] = useState(true);
 
     const fetchVideos = async () => {
         try {
-            const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${"Healthcare"}`);
+            const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${props.category}`);
             const videos = response.data.data.map(video => {
                 let videoId = null;
-    
+
                 try {
                     const videoUrl = new URL(video.url);
                     if (videoUrl.hostname === 'www.youtube.com' && videoUrl.searchParams.has('v')) {
@@ -25,7 +23,7 @@ export default function Healthcare(props) {
                 } catch (error) {
                     console.error('Invalid URL:', video.url);
                 }
-    
+
                 return {
                     ...video,
                     embedUrl: videoId ? `https://www.youtube.com/embed/${videoId}` : null
@@ -38,10 +36,10 @@ export default function Healthcare(props) {
             setLoading(false);
         }
     };
-    
 
     useEffect(() => {
         fetchVideos();
+        console.log(props.category)
     }, []);
 
     if (loading) {
@@ -52,7 +50,7 @@ export default function Healthcare(props) {
         <>
             <div className="row">
                 {healthcareData.map((item, index) => (
-                    <div key={index} className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <div key={index} className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
                                 <img
@@ -81,68 +79,71 @@ export default function Healthcare(props) {
                                             {item.title}
                                         </Link>
                                     </h2>
-                                    <p style={{ height: "auto" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                                            <p style={{ height: "auto" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
                                     <div
                                         className="theme_btn_all color_two"
                                         style={{
                                             display: "flex",
+                                            justifyContent: "space-between", 
                                             marginTop: "auto",
-                                            // position: "absolute",
                                             bottom: 0,
                                         }}
                                     >
-                                        <button
-                                            onClick={() => props.openModal(item.embedUrl)}
-                                            className="theme-btn one"
-                                            target="_blank"
-                                            rel="nofollow"
-                                            style={{
-                                                marginRight: "5px",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                background: "white",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <img
-                                                src="/assets/images/whatsapp_flow1.png"
-                                                alt="WhatsApp Image"
+                                        <div>
+                                            <button
+                                                onClick={() => props.openModal(item.embedUrl)}
+                                                className="theme-btn one"
+                                                target="_blank"
+                                                rel="nofollow"
                                                 style={{
-                                                    width: "28px",
-                                                    borderRadius: "50px",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    background: "white",
                                                     textDecoration: "none",
                                                 }}
-                                            />
-                                            <span style={{ marginLeft: "5px", color: "black" }}>
-                                                Wa Bot
-                                            </span>
-                                        </button>
-                                        {/* <button
-                                            onClick={() => openModal(item.embedUrl)}
-                                            className="theme-btn one"
-                                            target="_blank"
-                                            rel="nofollow"
-                                            style={{
-                                                marginRight: "5px",
-                                                display: "flex",
-                                                alignItems: "center",
-                                                background: "#F0F0F0",
-                                                textDecoration: "none",
-                                            }}
-                                        >
-                                            <img
-                                                src="/assets/images/Web_icon.png"
-                                                alt="Web Icon"
+                                            >
+                                                <img
+                                                    src="/assets/images/youtube.png"
+                                                    alt="WhatsApp Image"
+                                                    style={{
+                                                        width: "28px",
+                                                        borderRadius: "50px",
+                                                        textDecoration: "none",
+                                                    }}
+                                                />
+                                                <span style={{ marginLeft: "5px", color: "black" }}>
+                                                    play Video
+                                                </span>
+                                            </button>
+                                        </div>
+                                        {/* <div>
+                                            <button
+                                                onClick={() => openModal(item.embedUrl)}
+                                                className="theme-btn one"
+                                                target="_blank"
+                                                rel="nofollow"
                                                 style={{
-                                                    width: "25px",
-                                                    borderRadius: "50px",
+                                                    marginRight: "5px",
+                                                    display: "flex",
+                                                    alignItems: "center",
+                                                    background: "#F0F0F0",
                                                     textDecoration: "none",
                                                 }}
-                                            />
-                                            <span style={{ marginLeft: "10px", color: "black" }}>
-                                                Web App
-                                            </span>
-                                        </button> */}
+                                            >
+                                                <img
+                                                    src="/assets/images/Web_icon.png"
+                                                    alt="Web Icon"
+                                                    style={{
+                                                        width: "25px",
+                                                        borderRadius: "50px",
+                                                        textDecoration: "none",
+                                                    }}
+                                                />
+                                                <span style={{ marginLeft: "5px", color: "black" }}>
+                                                    Web App
+                                                </span>
+                                            </button>
+                                        </div> */}
                                     </div>
                                 </div>
                             </div>
