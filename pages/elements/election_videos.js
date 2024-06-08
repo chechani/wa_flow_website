@@ -3,8 +3,8 @@ import { useState, useEffect } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import axios from "axios";
 
-export default function Others(props) {
-    const [otherData, setOtherData] = useState([]);
+export default function Election(props) {
+    const [ElectionData, setElectionData] = useState([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -13,7 +13,7 @@ export default function Others(props) {
                 const response = await axios.get(`https://foss-erp.in/api/method/smarty_web.api.get_videos?category=${props.category}`);
                 const videos = response.data.data.map(video => {
                     let videoId = null;
-        
+
                     try {
                         const videoUrl = new URL(video.url);
                         if (videoUrl.hostname === 'www.youtube.com' && videoUrl.searchParams.has('v')) {
@@ -24,13 +24,13 @@ export default function Others(props) {
                     } catch (error) {
                         console.error('Invalid URL:', video.url);
                     }
-        
+
                     return {
                         ...video,
                         embedUrl: videoId ? `https://www.youtube.com/embed/${videoId}` : null
                     };
                 });
-                setOtherData(videos);
+                setElectionData(videos);
             } catch (error) {
                 console.log(error);
             } finally {
@@ -42,19 +42,19 @@ export default function Others(props) {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>; // Loading state
+        return <div>Loading...</div>;
     }
 
     return (
         <>
 
-<div className="row">
-                {otherData.map((item, index) => (
+            <div className="row">
+                {ElectionData.map((item, index) => (
                     <div key={index} className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
                                 <img
-                                    src="/assets/images/Cancel_an_Appointment_for_a_Patient.jpg"
+                                    src="/assets/images/add_family_member.jpg"
                                     className="img-fluid svg_image"
                                     style={{
                                         width: "70px",
@@ -78,31 +78,31 @@ export default function Others(props) {
                                         <Link href="#" style={{ textDecoration: "none" }}>
                                             {item.title}
                                         </Link>
-                                        </h2>
-                                        <div className="row">
-                                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    </h2>
+                                    <div className="row">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <p style={{ height: "auto" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
-                                            </div>
-                                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
-                                            <img
-                                    src="/assets/images/healthcare5.png"
-                                    className="img-fluid svg_image"
-                                    alt="icon png"
-                                    style={{width:"100%"}}
-                                />
-                                            </div>
                                         </div>
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <img
+                                                src="/assets/images/healthcare5.png"
+                                                className="img-fluid svg_image"
+                                                alt="icon png"
+                                                style={{ width: "100%" }}
+                                            />
+                                        </div>
+                                    </div>
 
                                     <div
                                         className="theme_btn_all color_two"
                                         style={{
                                             display: "flex",
-                                            justifyContent: "space-between", 
+                                            justifyContent: "space-between",
                                             marginTop: "auto",
                                             bottom: 0,
                                         }}
                                     >
-                                        <div style={{marginTop:"20px"}}>
+                                        <div style={{ marginTop: "20px" }}>
                                             <button
                                                 onClick={() => props.openModal(item.embedUrl)}
                                                 className="theme-btn one"
@@ -129,7 +129,7 @@ export default function Others(props) {
                                                 </span>
                                             </button>
                                         </div>
-                                        <div style={{marginTop:"20px"}}>
+                                        <div style={{ marginTop: "20px" }}>
                                             <button
                                                 // onClick={() => openModal(item.embedUrl)}
                                                 className="theme-btn one"
@@ -164,8 +164,9 @@ export default function Others(props) {
                     </div>
                 ))}
             </div>
+
             {/* <div className="row">
-                {otherData.map((item, index) => (
+                {IciData.map((item, index) => (
                     <div key={index} className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
@@ -232,6 +233,7 @@ export default function Others(props) {
                                                 </span>
                                             </button>
                                         </div>
+                                       
                                     </div>
                                 </div>
                             </div>

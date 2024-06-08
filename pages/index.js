@@ -6,6 +6,7 @@ import HeroSlider10 from "@/components/sections/HeroSlider10"
 import About2 from "@/components/sections/About2"
 import About5 from "@/components/sections/About5"
 import WaFLowDemo from "./elements/wa_flow_demos"
+import DemoVideos from "./elements/demo_videos"
 
 export default function Home1() {
 
@@ -16,7 +17,8 @@ export default function Home1() {
             </Head>
             <Layout headerStyle={9}footerStyle={1}>
                 <HeroSlider10/>
-                <WaFLowDemo/>
+                {/* <WaFLowDemo/> */}
+                <DemoVideos/>
                 <About4 />
                 <About3/>
                 <About2/>

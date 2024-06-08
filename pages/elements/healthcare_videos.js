@@ -50,14 +50,14 @@ export default function Healthcare(props) {
         <>
             <div className="row">
                 {healthcareData.map((item, index) => (
-                    <div key={index} className="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+                    <div key={index} className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div className="choose_box type_one">
                             <div className="image_box">
                                 <img
                                     src="/assets/images/register_doctor.jpg"
                                     className="img-fluid svg_image"
                                     style={{
-                                        width: "90px",
+                                        width: "70px",
                                         borderRadius: "30px",
                                     }}
                                     alt="icon png"
@@ -78,8 +78,21 @@ export default function Healthcare(props) {
                                         <Link href="#" style={{ textDecoration: "none" }}>
                                             {item.title}
                                         </Link>
-                                    </h2>
+                                        </h2>
+                                        <div className="row">
+                                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
                                             <p style={{ height: "auto" }} dangerouslySetInnerHTML={{ __html: item.description }}></p>
+                                            </div>
+                                            <div className="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                            <img
+                                    src="/assets/images/healthcare5.png"
+                                    className="img-fluid svg_image"
+                                    alt="icon png"
+                                    style={{width:"100%"}}
+                                />
+                                            </div>
+                                        </div>
+
                                     <div
                                         className="theme_btn_all color_two"
                                         style={{
@@ -89,7 +102,7 @@ export default function Healthcare(props) {
                                             bottom: 0,
                                         }}
                                     >
-                                        <div>
+                                        <div style={{marginTop:"20px"}}>
                                             <button
                                                 onClick={() => props.openModal(item.embedUrl)}
                                                 className="theme-btn one"
@@ -112,13 +125,13 @@ export default function Healthcare(props) {
                                                     }}
                                                 />
                                                 <span style={{ marginLeft: "5px", color: "black" }}>
-                                                    play Video
+                                                    Play Video
                                                 </span>
                                             </button>
                                         </div>
-                                        {/* <div>
+                                        <div style={{marginTop:"20px"}}>
                                             <button
-                                                onClick={() => openModal(item.embedUrl)}
+                                                // onClick={() => openModal(item.embedUrl)}
                                                 className="theme-btn one"
                                                 target="_blank"
                                                 rel="nofollow"
@@ -131,7 +144,7 @@ export default function Healthcare(props) {
                                                 }}
                                             >
                                                 <img
-                                                    src="/assets/images/Web_icon.png"
+                                                    src="/assets/images/whatsapp_flow1.png"
                                                     alt="Web Icon"
                                                     style={{
                                                         width: "25px",
@@ -140,10 +153,10 @@ export default function Healthcare(props) {
                                                     }}
                                                 />
                                                 <span style={{ marginLeft: "5px", color: "black" }}>
-                                                    Web App
+                                                    Show Preview
                                                 </span>
                                             </button>
-                                        </div> */}
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -2,7 +2,7 @@ export default function About4() {
 
     return (
         <>
-            <section className="about-section" style={{marginTop:"550px"}}>
+            <section className="about-section mt-5">
                 <div className="container">
                     <div className="mb-5" style={{ textAlign: "center" }}>
                         <h1 style={{ fontWeight: "bold", fontSize: "50px" }}>Why WhatsApp Flows? <img src="/assets/images/second.png" className="img-fluid svg_image" alt="icon png" style={{ height: "200px" }} /></h1>

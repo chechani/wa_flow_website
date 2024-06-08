@@ -3,9 +3,7 @@ import dynamic from 'next/dynamic'
 const PortfolioFilter = dynamic(() => import('../../components/elements/PortfolioFilter1Col'), {
   ssr: false,
 })
-export default function WaFLowDemo() {
-
-
+export default function wa_flow_demos() {
     return (
         <>
             <section className="project-section bg_light_1">
