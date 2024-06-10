@@ -5,8 +5,9 @@ import About3 from "@/components/sections/About3"
 import HeroSlider10 from "@/components/sections/HeroSlider10"
 import About2 from "@/components/sections/About2"
 import About5 from "@/components/sections/About5"
-import WaFLowDemo from "./elements/wa_flow_demos"
 import DemoVideos from "./elements/demo_videos"
+import Content5 from "@/components/sections/Content5"
+import ExcelToJson from "./elements/excel_to_json_form"
 
 export default function Home1() {
 
@@ -17,9 +18,10 @@ export default function Home1() {
             </Head>
             <Layout headerStyle={9}footerStyle={1}>
                 <HeroSlider10/>
-                {/* <WaFLowDemo/> */}
+                <ExcelToJson/>
                 <DemoVideos/>
                 <About4 />
+                <Content5/>
                 <About3/>
                 <About2/>
                 <About5/>
