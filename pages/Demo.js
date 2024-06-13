@@ -173,7 +173,7 @@ const ScreensPanel = ({ screens, currentScreenIndex, addScreen, selectScreen, ed
                 return (
                   <div style={{ width: "350px", border: '1px solid #ddd', borderRadius: '5px', padding: '20px', backgroundColor: '#fff' }}>
                     <div style={{ fontSize: '25px', textAlign: 'left', fontWeight:"bold" }}>
-                      {currentScreenIndex !== null ? `${screens.title} ${currentScreenIndex + 1}` : ''}
+                      {currentScreenIndex !== null ? `Screen ${currentScreenIndex + 1}` : ''}
                     </div>
                     <label htmlFor="content-type" style={{ fontSize: "25px" }}>Content Type</label>
                     <select id="content-type" value={contentType} onChange={handleContentTypeChange} disabled={currentScreenIndex === null} style={{ marginTop: "10px", marginBottom: "10px" }}>
