@@ -46,7 +46,7 @@ export default function Navbar() {
                    
                 </li>
                 <li className="menu-item  menu-item-has-children dropdown dropdown_full position-static mega_menu nav-item">
-                    <Link href="/ExcelToJson" className="dropdown-toggle nav-link">
+                    <Link href="/Demo" className="dropdown-toggle nav-link">
                         <span>Excel To Json</span>
                     </Link>
                    
